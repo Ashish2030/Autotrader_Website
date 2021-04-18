@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Autotrader</title>
+<link rel="shortcut icon" href="m1.jpg" width="1000px">
+<style>
+/* DEMO GENERAL ============================== */
+.hover {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 60%;
+}
+
+.hover-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  transition: all 0.4s;
+}
+
+.hover img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.hover-content {
+  position: relative;
+  z-index: 99;
+}
+
+
+/* DEMO 1 ============================== */
+.hover-1 img {
+  width: 105%;
+  position: absolute;
+  top: 0;
+  left: -5%;
+  transition: all 0.3s;
+}
+
+.hover-1-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.4s;
+}
+
+.hover-1 .hover-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hover-1-description {
+  transform: translateY(0.5rem);
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+.hover-1:hover .hover-1-content {
+  bottom: 2rem;
+}
+
+.hover-1:hover .hover-1-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-1:hover img {
+  left: 0;
+}
+
+.hover-1:hover .hover-overlay {
+  opacity: 0;
+}
+
+
+/* DEMO 2 ============================== */
+.hover-2 .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+}
+
+.hover-2-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2-description {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  left: 0;
+  text-align: center;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2:hover .hover-2-title {
+  transform: translateY(-1.5rem);
+}
+
+.hover-2:hover .hover-2-description {
+  bottom: 0.5rem;
+  opacity: 1;
+}
+
+.hover-2:hover .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+
+/* DEMO 3 ============================== */
+.hover-3::after {
+  content: '';
+  width: calc(100% - 3rem);
+  height: calc(100% - 3rem);
+  border: 1px solid #fff;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 90;
+  transition: all 0.3s;
+  transform: scale(1.1);
+  opacity: 0;
+  display: block;
+  opacity: 0;
+}
+
+.hover-3-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 99;
+}
+
+.hover-3-description {
+  opacity: 0;
+  transform: scale(1.3);
+  transition: all 0.3s;
+}
+
+.hover-3 img {
+  width: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hover-3 .hover-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hover-3:hover img {
+  width: 100%;
+}
+
+.hover-3:hover::after {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-3:hover .hover-3-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-3:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* DEMO 4 ============================== */
+.hover-4 img {
+  width: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hover-4 .hover-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+}
+
+.hover-4-title {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3rem;
+  z-index: 99;
+}
+
+.hover-4-description {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  text-align: right;
+  border-right: 3px solid #fff;
+  padding: 0 1rem;
+  z-index: 99;
+  transform: translateX(-1.5rem);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+@media (min-width: 992px) {
+  .hover-4-description {
+    width: 50%;
+  }
+}
+
+.hover-4:hover img {
+  width: 100%;
+}
+
+.hover-4:hover::after {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-4:hover .hover-4-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-4:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* DEMO 5 ============================== */
+.hover-5::after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: #47c650;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  display: block;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.hover-5 .hover-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hover-5-title {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  transition: all 0.3s;
+  padding: 2rem 3rem;
+  z-index: 99;
+}
+
+.hover-5-title span {
+  transition: all 0.4s;
+  opacity: 0;
+  color: #47c650;
+}
+
+.hover-5:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hover-5:hover .hover-5-title {
+  bottom: 0;
+}
+
+.hover-5:hover .hover-5-title span {
+  opacity: 1;
+}
+
+.hover-5:hover::after {
+  bottom: 0;
+}
+</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body  class="text-secondary">
+<!-- NAVBAR-->
+<nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a href="#" class="navbar-brand">
+      <!-- Logo Image -->
+      <img src="p.png" width="45" height="45" alt="" class="d-inline-block align-middle mr-2">
+      <!-- Logo Text -->
+      <span class="text-uppercase font-weight-bold">AutoTraders</span>
+    </a>
+
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a href="buy.html" class="nav-link">New car</a></li>
+        <li class="nav-item"><a href="used.html" class="nav-link">Used car</a></li>
+        <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
+        <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
+ <li class="nav-item"><a href="sale.html" class="nav-link">Sell</a></li>
+   <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+     <li class="nav-item"><a href="premium.html" class="nav-link">Premium</a></li>
+ <li class="nav-item"><a href="map.html" class="nav-link">Map</a></li>
+  <li class="nav-item"><a href="account.html" class="nav-link">Login/sign up</a></li>
+<li class="nav-item"><a href="chat.html" class="nav-link">Chat</a></li>
+      
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container py-5">
+  <!-- For Demo Purpose -->
+  <header class="text-center">
+    <h1 class="display-4 font-weight-bold"> Gallery</h1>
+    <p class="font-italic text-muted mb-0">Autotrader Gallery</p>
+
+    </p>
+  </header>
+
+  <div class="py-5">
+    <h3 class="font-weight-bold mb-0">SuperCars</h3>
+    <p class="font-italic text-muted mb-4">This is our few awsome super cars</p>
+    <div class="row">
+      <!-- DEMO 1 Item-->
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <div class="hover hover-1 text-white rounded"><img src="image500.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-1-content px-5 py-4">
+            <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">2018 </span>McLaren 720S.</h3>
+            <p class="hover-1-description font-weight-light mb-0">Search Results
+Featured snippet from the web
+The McLaren 720S is a sports car designed and manufactured by British automobile manufacturer McLaren Automotive. It is the second all-new car in the McLaren Super Series, replacing the 650S beginning in May 2017.
+</p>
+          </div>
+        </div>
+      </div>
+      <!-- DEMO 1 Item-->
+      <div class="col-lg-6">
+        <div class="hover hover-1 text-white rounded"><img src="image501.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-1-content px-5 py-4">
+            <h3 class="hover-1-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">Black </span>Ferrari F430</h3>
+            <p class="hover-1-description font-weight-light mb-0">Ferrari F430 was the successor of legendary Ferrari 360 and was debuted in 2004. A classic Pininfarina design under the guidance of Frank Stephenson, the F430 had many tweaks to improve the aerodynamic efficiency, downforce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO 2-->
+  <div class="py-5">
+    <h3 class="font-weight-bold mb-0">Fuel Efficient</h3>
+    <p class="font-italic text-muted mb-4">World Best Fuel efficient Cars</p>
+    <div class="row">
+      <!-- DEMO 2 Item-->
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <div class="hover hover-2 text-white rounded"><img src="image502.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-2-content px-5 py-4">
+            <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light">Best MPG</span>Mercedes-Benz AMG SLC</h3>
+            <p class="hover-2-description text-uppercase mb-0">Best known for the folding hardtop with a photochromic glass roof that stows or raises in 20 seconds at speeds of up to 25 mph, the SLC is offered in two different roadsters.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEMO 2 Item-->
+      <div class="col-lg-6">
+        <div class="hover hover-2 text-white rounded"><img src="image503.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-2-content px-5 py-4">
+            <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span class="font-weight-light"></span>Maserati Gran Turismo Convertible</h3>
+            <p class="hover-2-description text-uppercase mb-0">Lorem ipsum dolor sit amet, consectetur <br>adipisicing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO 3 -->
+  <div class="py-5">
+    <h3 class="font-weight-bold mb-0">Expensive Cars</h3>
+    <p class="font-italic text-muted mb-4"></p>
+    <div class="row">
+      <!-- DEMO 3 Item-->
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <div class="hover hover-3 text-white rounded"><img src="image504.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-3-content px-5 py-4">
+            <h3 class="hover-3-title text-uppercase font-weight-bold mb-1"><span class="font-weight-light"></span>Buggati Chiron</h3>
+            <p class="hover-3-description small text-uppercase mb-0">The CHIRON is the fastest, most powerful, and exclusive production super sports car in BUGATTI's history. Its sophisticated design, innovative technology.</p>
+          </div>
+        </div>
+      </div>
+      <!-- DEMO 3 Item    -->
+      <div class="col-lg-6">
+        <div class="hover hover-3 text-white rounded"><img src="image505.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-3-content px-5 py-4">
+            <h3 class="hover-3-title text-uppercase font-weight-bold mb-1"><span class="font-weight-light"></span>
+Lamborghini Aventador</h3>
+            <p class="hover-3-description small text-uppercase mb-0">The most expensive car in Lamborghini's lineup is the Aventador, priced at Rs. 6.25 Cr for its top variant</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEMO 4 -->
+  <div class="py-5">
+    <h3 class="font-weight-bold mb-0">Black Cars</h3>
+    <p class="font-italic text-muted mb-4">Balck is everything</p>
+    <div class="row">
+      <!-- DEMO 4 Item-->
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <div class="hover hover-4 text-white rounded"><img src="image601.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-4-content">
+            <h3 class="hover-4-title text-uppercase font-weight-bold mb-0"><span class="font-weight-light"> </span>Matte Black</h3>
+            <p class="hover-4-description text-uppercase mb-0 small">
+
+Bugatti Chiron: Breaking new dimensionswww.bugatti.com › chiron
+The CHIRON is the fastest, most powerful, and exclusive production super sports car in BUGATTI's history. Its sophisticated design, innovative technology, </p>
+          </div>
+        </div>
+      </div>
+      <!-- DEMO 4 Item            -->
+      <div class="col-lg-6">
+        <div class="hover hover-4 text-white rounded"><img src="image602.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-4-content">
+            <h3 class="hover-4-title text-uppercase font-weight-bold mb-0"><span class="font-weight-light"></span>Ford F20</h3>
+            <p class="hover-4-description text-uppercase mb-0 small">According to the German car brand, the BMW VBX6 is the "first and only vehicle in the world" to feature a Vantablack VBx2 coating, which almost entirely removes all reflections.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- DEMO 5 -->
+  <div class="py-5">
+    <h3 class="font-weight-bold mb-0">BMW</h3>
+    <p class="font-italic text-muted mb-4">The most expensive car in BMW's lineup is the M Series</p>
+    <div class="row">
+ 
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <div class="hover hover-5 text-white rounded"><img src="image700.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-5-content">
+            <h3 class="hover-5-title text-uppercase font-weight-light mb-0"> <strong class="font-weight-bold text-white">BMW </strong><span>Fuel Effecient</span></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <!-- DEMO 5 Item-->
+        <div class="hover hover-5 text-white rounded"><img src="image701.jpg" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-5-content">
+            <h3 class="hover-5-title text-uppercase font-weight-light mb-0"> <strong class="font-weight-bold text-white">BMW </strong><span>Electrical</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+ <title>Autotrader</title>
+<link rel="shortcut icon" href="m1.jpg" width="1000px">
+<style>
+.blockquote-custom {
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.blockquote-custom-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -25px;
+  left: 50px;
+}
+.page-holder {
+  min-height: 100vh;
+}
+
+.bg-cover {
+  background-size: cover !important;
+}
+.hover-3::after {
+  content: '';
+  width: calc(100% - 3rem);
+  height: calc(100% - 3rem);
+  border: 1px solid #fff;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 90;
+  transition: all 0.3s;
+  transform: scale(1.1);
+  opacity: 0;
+  display: block;
+  opacity: 0;
+}
+
+.hover-3-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 99;
+}
+
+.hover-3-description {
+  opacity: 0;
+  transform: scale(1.3);
+  transition: all 0.3s;
+}
+
+.hover-3 img {
+  width: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hover-3 .hover-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.hover-3:hover img {
+  width: 100%;
+}
+
+.hover-3:hover::after {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-3:hover .hover-3-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-3:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* DEMO 4 ============================== */
+.hover-4 img {
+  width: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hover-4 .hover-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+}
+
+.hover-4-title {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 3rem;
+  z-index: 99;
+}
+
+.hover-4-description {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  text-align: right;
+  border-right: 3px solid #fff;
+  padding: 0 1rem;
+  z-index: 99;
+  transform: translateX(-1.5rem);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+@media (min-width: 992px) {
+  .hover-4-description {
+    width: 50%;
+  }
+}
+
+.hover-4:hover img {
+  width: 100%;
+}
+
+.hover-4:hover::after {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-4:hover .hover-4-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-4:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* DEMO 5 ============================== */
+.hover-5::after {
+  content: '';
+  width: 100%;
+  height: 10px;
+  background: #47c650;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  display: block;
+  transition: all 0.3s;
+  z-index: 999;
+}
+
+.hover-5 .hover-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.hover-5-title {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  transition: all 0.3s;
+  padding: 2rem 3rem;
+  z-index: 99;
+}
+
+.hover-5-title span {
+  transition: all 0.4s;
+  opacity: 0;
+  color: #47c650;
+}
+
+.hover-5:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.hover-5:hover .hover-5-title {
+  bottom: 0;
+}
+
+.hover-5:hover .hover-5-title span {
+  opacity: 1;
+}
+
+.hover-5:hover::after {
+  bottom: 0;
+}
+
+.body12 {
+  min-height: 100vh; 
+}
+.bg-cover {
+    background-size: cover !important;
+}
+body {
+  background: linear-gradient(70deg, #e6e6e6, #f7f7f7);
+  color: #514B64;
+  min-height: 100vh;
+}
+
+code {
+  background: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  margin: 0 0.3rem;
+}
+ .map{
+    width:100%;
+    height: 450px; 
+    border: 1px solid #333335;
+    margin-bottom:20px;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+
+angular.module('myApp', [])
+
+// CONTROLLER
+.controller('MapCtrl', function($timeout) {
+    // Markers
+    this.coords = [
+      { lat: 42.87916, lng: -3.32910 },
+      { lat: 41.87916, lng: -5.32910 },
+      { lat: 40.87916, lng: 15.32910 }
+    ]
+    this.center = { lat: 41.87916, lng: 10.32910 };
+    this.zoom = 3;
+    
+
+    // UPDATE after 5 seconds: markers, center and zoom
+    $timeout(function() {
+      this.coords = [
+        { lat: 32.87916, lng: -3.32910 },
+        { lat: 31.87916, lng: -5.32910 },
+      ];
+      this.center = { lat: 30.87916, lng: -5.32910 };
+      this.zoom = 6;
+    }.bind(this), 5000)
+})
+ 
+
+// MapMarker directive
+.directive('mapMarkers', function() {
+  return {
+    restrict: 'E',
+    replace: true,
+    scope: {
+      coords: '=',
+      center: '=',
+      zoom: '=',
+    },
+    template: '<div></div>',
+    link: function(scope, element) {
+      var myOptions = {
+        // Currently empty
+      };
+      
+      var markers = [];
+      var map = new google.maps.Map(element[0], myOptions);
+      
+      function cleanMarkers() {
+        for (var i=0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+      }
+      
+      function createMarker(obj) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(
+            obj.lat, 
+            obj.lng
+          ),
+          title:"Hello World!"
+        });
+        marker.setMap(map);
+        markers.push(marker)
+      }
+
+      // Watch for 'coords' updates
+      scope.$watch('coords', function(obj) {
+        cleanMarkers();
+        for (var i=0; i < obj.length; i++) {
+          createMarker (obj[i])
+        }
+      }.bind(this));
+      
+      // Watch for 'center' updates
+      scope.$watch('center', function(obj) {
+        map.setCenter({
+          lat: obj.lat, 
+          lng: obj.lng
+        });
+      }.bind(this));
+
+      // Watch for 'zoom' updates
+      scope.$watch('zoom', function(obj) {
+        map.setZoom(scope.zoom)
+      }.bind(this));
+      
+    }
+  };
+})
+
+
+
+
+</script>
+<body>
+
+
+<div ng-app="myApp"
+   ng-controller="MapCtrl as ctrl">
+    
+    <map-markers class="map" 
+      coords="ctrl.coords"
+      center="ctrl.center"
+      zoom="ctrl.zoom"></map>
+      
+</div>
+
+Data will change after 5 seconds
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAyMH-A99yD5fHQPz7uzqk8glNJYGEqus" type="text/javascript"></script>
+      
+
+
+</body>
+</html>
